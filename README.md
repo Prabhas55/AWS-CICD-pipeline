@@ -106,8 +106,6 @@ The deployed application can then be accessed through the EC2 instance's public 
                      ┌────────────────────────┐
                      │     AWS CodeBuild      │
                      │                        │
-                     │    buildspec.yml       │
-                     │                        │
                      │  Build / Validation    │
                      └───────────┬────────────┘
                                  │
@@ -115,9 +113,6 @@ The deployed application can then be accessed through the EC2 instance's public 
                                  ▼
                      ┌────────────────────────┐
                      │     AWS CodeDeploy     │
-                     │                        │
-                     │     appspec.yml        │
-                     │   Deployment Hooks     │
                      └───────────┬────────────┘
                                  │
                                  │ Deployment
@@ -189,7 +184,6 @@ Branch: main
 ```text
 Provider: AWS CodeBuild
 Build Project: AWS-Build
-Build Specification: buildspec.yml
 ```
 
 ### Deploy Stage
@@ -238,19 +232,7 @@ The demonstrated pipeline successfully completed all three stages:
 ✅ Deploy
 ```
 
-## 📄 Configuration Files
 
-### `buildspec.yml`
-
-Defines the commands executed by AWS CodeBuild during the build process.
-
-### `appspec.yml`
-
-Defines how AWS CodeDeploy installs and manages the application on the EC2 instance.
-
-### Deployment Scripts
-
-The deployment scripts are executed during the CodeDeploy lifecycle to install dependencies, stop/start the web server, update application permissions, and validate the deployed service.
 
 ## 📸 Screenshots
 
